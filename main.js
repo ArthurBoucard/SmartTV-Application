@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, BrowserView } = require('electron');
 const { ipcMain } = require('electron')
 
 const createWindow = () => {
@@ -11,6 +11,11 @@ const createWindow = () => {
 	});
 	ipcMain.handle('ping', () => 'pong')
 	win.loadFile('index.html');
+
+	const view = new BrowserView()
+	win.setBrowserView(view)
+	view.setBounds({ x: 0, y: 300, width: 800, height: 300 })
+	view.webContents.loadURL('https://www.youtube.com')
 };
 
 app.whenReady().then(() => {
