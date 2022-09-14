@@ -1,0 +1,24 @@
+{
+  "name": "smarttv-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^20.1.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurBoucard/SmartTV-Application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurBoucard/SmartTV-Application/issues"
+  },
+  "homepage": "https://github.com/ArthurBoucard/SmartTV-Application#readme"
+}
