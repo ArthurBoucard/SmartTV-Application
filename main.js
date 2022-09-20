@@ -1,7 +1,9 @@
-const { app, BrowserWindow, BrowserView } = require('electron');
+const { app, BrowserWindow, BrowserView, ipcMain } = require('electron');
+
+let window;
 
 const createWindow = () => {
-	const win = new BrowserWindow({
+	return new BrowserWindow({
 		titleBarStyle: 'hidden',
 		titleBarOverlay: {
 			color: '#34475a',
@@ -13,15 +15,16 @@ const createWindow = () => {
 			preload: __dirname + '/preload.js',
 		},
 	});
-	win.loadFile('index.html');
 };
 
 app.whenReady().then(() => {
-	createWindow();
+	window = createWindow();
+	showMainWindow();
 
 	app.on('activate', () => {
 		if (BrowserWindow.getAllWindows().length === 0) {
-			createWindow();
+			window = createWindow();
+			showMainWindow();
 		}
 	});
 });
@@ -31,3 +34,31 @@ app.on('window-all-closed', () => {
 		app.quit();
 	}
 });
+
+// -------- App Windows --------
+
+function showMainWindow() {
+	window.setBrowserView(null)
+	BrowserView.destroy
+
+    window.loadFile('index.html').then(() => {
+		window.show();
+	})
+};
+
+function showYoutubeWindow() {
+    const view = new BrowserView()
+	window.setBrowserView(view)
+	view.setBounds({ x: 0, y: 300, width: 800, height: 300 })
+	view.webContents.loadURL('https://www.youtube.com')
+};
+
+// -------- IPC --------
+
+ipcMain.on('message:youtube', (event) => {
+    showYoutubeWindow();
+})
+
+ipcMain.on('message:main', (event, session) => {
+    showMainWindow();
+})
