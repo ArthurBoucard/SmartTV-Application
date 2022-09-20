@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 32px;
     background: #34475a;
     -webkit-app-region: drag;
 }
