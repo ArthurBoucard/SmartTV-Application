@@ -47,10 +47,6 @@ button:hover {
     background: rgba(221, 221, 221, 0.2);
 }
 
-#close-btn:hover {
-    background: rgb(255, 0, 0);
-}
-
 button i {
     color: white;
 }
