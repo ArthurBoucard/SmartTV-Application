@@ -3,7 +3,7 @@ const { app, BrowserWindow, BrowserView, ipcMain } = require('electron');
 let window;
 
 const createWindow = () => {
-	return new BrowserWindow({
+	return window = new BrowserWindow({
 		titleBarStyle: 'hidden',
 		titleBarOverlay: {
 			color: '#34475a',
@@ -49,7 +49,7 @@ function showMainWindow() {
 function showYoutubeWindow() {
     const view = new BrowserView()
 	window.setBrowserView(view)
-	view.setBounds({ x: 0, y: 300, width: 800, height: 300 })
+	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
 	view.webContents.loadURL('https://www.youtube.com')
 };
 
