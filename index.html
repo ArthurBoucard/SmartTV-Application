@@ -9,19 +9,30 @@
         <link rel="stylesheet" href="style.css" />
         <title>SmartTV Application</title>
     </head>
-
+    <script src="./config.js"></script>
     <body>
         <div id="menu-bar">
-            <div class="left" role="menu">
-              <button class="menubar-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
-              <h5>SmartTV</h5>
-            </div>
+				<div class="left" role="menu">
+					<button class="menubar-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+					<h5>SmartTV</h5>
+				</div>
           </div>
-          <div class="container">
-            <button class="app-btn" id="youtube-btn">Youtube</button>
-            <button class="app-btn" id="netflix-btn">Netflix</button>
+          <div class="app-container" id="app-container">
+			<script type="text/javascript">
+				for (key in config.app) {
+					if (config.app[key]) {
+						let button = document.createElement('button');
+						button.className = 'app-btn'
+						button.id = key + '-btn'
+
+						const container = document.querySelector('#app-container');
+						container.appendChild(button)
+						
+						document.getElementById(key + '-btn').innerHTML = key;
+					}
+				}
+			</script>
           </div>
     </body>
-
     <script src="./renderer.js"></script>
 </html>
