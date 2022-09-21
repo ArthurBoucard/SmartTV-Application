@@ -56,12 +56,23 @@ function showYoutubeWindow() {
 	view.webContents.loadURL('https://www.youtube.com')
 };
 
+function showNetflixWindow() {
+    const view = new BrowserView()
+	window.setBrowserView(view)
+	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
+	view.webContents.loadURL('https://www.netflix.com')
+};
+
 // -------- IPC --------
+
+ipcMain.on('message:main', (event, session) => {
+    showMainWindow();
+})
 
 ipcMain.on('message:youtube', (event) => {
     showYoutubeWindow();
 })
 
-ipcMain.on('message:main', (event, session) => {
-    showMainWindow();
+ipcMain.on('message:netflix', (event) => {
+    showNetflixWindow();
 })

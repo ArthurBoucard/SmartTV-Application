@@ -5,7 +5,8 @@ const ipc = {
         // From render to main.
         'send': [
             'message:main',
-            'message:youtube'
+            'message:youtube',
+            'message:netflix'
         ],
         // From main to render.
         'receive': [],
