@@ -21,14 +21,13 @@
 		<script type="text/javascript">
 			for (key in config.app) {
 				if (config.app[key]) {
-					let button = document.createElement('button');
+					let button = document.createElement('button')
 					button.className = 'app-btn'
 					button.id = key + '-btn'
+					button.style = 'background-image: url(./images/icons/' + key + '.jpg'
 
 					const container = document.querySelector('#app-container');
 					container.appendChild(button)
-					
-					document.getElementById(key + '-btn').innerHTML = key;
 				}
 			}
 		</script>
