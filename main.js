@@ -3,11 +3,12 @@ const { app, BrowserWindow, BrowserView, ipcMain } = require('electron');
 let window;
 
 const createWindow = () => {
-	return window = new BrowserWindow({
+	window = new BrowserWindow({
 		titleBarStyle: 'hidden',
 		titleBarOverlay: {
 			color: '#34475a',
 			symbolColor: '#FFFFFF',
+			height: 32,
 		},
 		width: 800,
 		height: 600,
@@ -15,6 +16,8 @@ const createWindow = () => {
 			preload: __dirname + '/preload.js',
 		},
 	});
+	window.maximize()
+	return window
 };
 
 app.whenReady().then(() => {
