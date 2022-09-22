@@ -26,29 +26,68 @@ body {
     -webkit-app-region: no-drag;
 }
 
-.app-container {
-    height: calc(100vh - 30px);
+.top-left-container {
+    height: 25vh;
+    width: 33%;
+    float: left;
     background: #34475ab0;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+}
+
+.top-center-container {
+    height: 25vh;
+    width: 33%;
+    float: left;
+    background: #34475ab0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-right-container {
+    height: 25vh;
+    width: 33%;
+    background: #34475ab0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-container {
+    height: 35vh;
+    position: bottom;
+    background: #34475ab0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    height: 50vh;
+    background: #34475a8b;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: auto;
+
 }
 
 .app-btn {
-    height: 80px;
-    width: 80px;
+    height: 15vh;
+    width: 15vh;
     background-color: white;
     border-radius: 8px;
-    margin: 10px;
-    background-size: 80px;
+    margin: 3vw;
+    background-size: 15vh;
 }
 
 .app-btn:hover {
-    height: 90px;
-    width: 90px;
-    background-size: 90px;
+    transform: scale(1.1);
+    background-size: 15.15vh;
+    transition: transform 330ms ease-in-out;
 }
 
 button {
