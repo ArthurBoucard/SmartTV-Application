@@ -34,6 +34,15 @@
 					container.appendChild(button)
 				}
 			}
+			for (key in config.widget) {
+				if (config.widget[key] && config.widget[key]['position'] == 'top_left') {
+					let widget = document.createElement('p')
+					widget.innerText = "CLOCK"
+
+					const container = document.querySelector('#top-left-container');
+					container.appendChild(widget)
+				}
+			}
 		</script>
     </body>
     <script src="./renderer.js"></script>
