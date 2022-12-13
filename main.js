@@ -63,6 +63,20 @@ function showNetflixWindow() {
 	view.webContents.loadURL('https://www.netflix.com')
 };
 
+function showDisneyWindow() {
+    const view = new BrowserView()
+	window.setBrowserView(view)
+	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
+	view.webContents.loadURL('https://www.disneyplus.com')
+};
+
+function showAmazonPrimeWindow() {
+    const view = new BrowserView()
+	window.setBrowserView(view)
+	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
+	view.webContents.loadURL('https://www.primevideo.com')
+};
+
 // -------- IPC --------
 
 ipcMain.on('message:main', (event, session) => {
@@ -75,4 +89,12 @@ ipcMain.on('message:youtube', (event) => {
 
 ipcMain.on('message:netflix', (event) => {
     showNetflixWindow();
+})
+
+ipcMain.on('message:disney', (event) => {
+    showDisneyWindow();
+})
+
+ipcMain.on('message:amazon_prime', (event) => {
+    showAmazonPrimeWindow();
 })
