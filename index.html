@@ -24,7 +24,7 @@
 		<div class="bottom-container" id="bottom-container"></div>
 		<script type="text/javascript">
 			for (key in config.app) {
-				if (config.app[key]) {
+				if (config.app[key].status) {
 					let button = document.createElement('button')
 					button.className = 'app-btn'
 					button.id = key + '-btn'
