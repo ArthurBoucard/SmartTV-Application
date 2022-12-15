@@ -35,7 +35,7 @@
 				}
 			}
 			for (key in config.widget) {
-				if (config.widget[key] && config.widget[key]['position'] == 'top_left') {
+				if (config.widget[key].status && config.widget[key]['position'] == 'top_left') {
 					let widget = document.createElement('p')
 					widget.innerText = "CLOCK"
 
