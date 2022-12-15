@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+
     <head>
         <meta charset="UTF-8" />
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -9,7 +11,9 @@
         <link rel="stylesheet" href="style.css" />
         <title>SmartTV Application</title>
     </head>
+
     <script src="./config.js"></script>
+
     <body>
         <div id="menu-bar">
 			<div class="left" role="menu">
@@ -22,28 +26,31 @@
 		<div class="top-right-container" id="top-right-container"></div>
 		<div class="app-container" id="app-container"></div>
 		<div class="bottom-container" id="bottom-container"></div>
-		<script type="text/javascript">
-			for (key in config.app) {
-				if (config.app[key].status) {
-					let button = document.createElement('button')
-					button.className = 'app-btn'
-					button.id = key + '-btn'
-					button.style = 'background-image: url(./images/icons/' + key + '.jpg'
-
-					const container = document.querySelector('#app-container');
-					container.appendChild(button)
-				}
-			}
-			for (key in config.widget) {
-				if (config.widget[key].status && config.widget[key]['position'] == 'top_left') {
-					let widget = document.createElement('p')
-					widget.innerText = "CLOCK"
-
-					const container = document.querySelector('#top-left-container');
-					container.appendChild(widget)
-				}
-			}
-		</script>
     </body>
+
+	<script type="text/javascript">
+		for (key in config.app) {
+			if (config.app[key].status) {
+				let button = document.createElement('button')
+				button.className = 'app-btn'
+				button.id = key + '-btn'
+				button.style = 'background-image: url(./images/icons/' + key + '.jpg'
+
+				const container = document.querySelector('#app-container');
+				container.appendChild(button)
+			}
+		}
+		for (key in config.widget) {
+			if (config.widget[key].status && config.widget[key]['position'] == 'top_left') {
+				let widget = document.createElement('p')
+				widget.innerText = "CLOCK"
+
+				const container = document.querySelector('#top-left-container');
+				container.appendChild(widget)
+			}
+		}
+	</script>
+
     <script src="./renderer.js"></script>
+
 </html>
