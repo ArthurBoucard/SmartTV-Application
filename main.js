@@ -30,6 +30,9 @@ app.whenReady().then(() => {
 			showMainWindow();
 		}
 	});
+
+	// Testing purpose
+	// window.webContents.openDevTools()
 });
 
 app.on('window-all-closed', () => {
