@@ -41,11 +41,11 @@
 			}
 		}
 		for (key in config.widget) {
-			if (config.widget[key].status && config.widget[key]['position'] == 'top_left') {
-				let widget = document.createElement('p')
-				widget.innerText = "CLOCK"
+			if (config.widget[key].status) {
+				let widget = document.createElement('iframe')
+				widget.src = './widgets/' + key +'.html'
 
-				const container = document.querySelector('#top-left-container');
+				const container = document.querySelector('#' + config.widget[key]['position']);
 				container.appendChild(widget)
 			}
 		}

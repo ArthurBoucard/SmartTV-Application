@@ -39,7 +39,7 @@ body {
 
 .top-center-container {
     height: 25vh;
-    width: 33%;
+    width: 34%;
     float: left;
     background: #34475ab0;
     display: flex;
@@ -117,4 +117,8 @@ button:hover {
 
 button i {
     color: white;
+}
+
+iframe {
+    border: 0px;
 }

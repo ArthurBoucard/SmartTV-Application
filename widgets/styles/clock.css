@@ -1,0 +1,16 @@
+/* Basic Style */
+
+#basic body {
+    text-align: center;
+}
+
+#basic h1 {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+#basic h2 {
+    color: rgb(233, 222, 222);
+    font-weight: lighter;
+    font-size: medium;
+}

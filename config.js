@@ -20,14 +20,15 @@ var config = {
     widget: {
         clock: {
             status: true,
-            position: "top_left",
+            position: "top-left-container",
             format: "HH:MM",
             timezone: "UTC+1",
+            date: "dd/mm/yyyy",
             design: "basic",
         },
         weather: {
             status: true,
-            position: "bottom_right",
+            position: "bottom-right-container",
             city: "Lyon",
             country: "France",
             temperature_format : "C",
