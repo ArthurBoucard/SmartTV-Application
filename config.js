@@ -27,7 +27,7 @@ var config = {
             design: "basic",
         },
         weather: {
-            status: true,
+            status: false,
             position: "top-right-container",
             city: "Lyon",
             country: "France",
@@ -36,3 +36,7 @@ var config = {
         }
     }
 }
+
+module.exports = {
+    config: config
+};

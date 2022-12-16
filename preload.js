@@ -1,14 +1,11 @@
 const { contextBridge, ipcRenderer } = require('electron')
+const config = require('./config');
 
 const ipc = {
     'render': {
         // From render to main.
         'send': [
-            'message:main',
-            'message:youtube',
-            'message:netflix',
-            'message:disney',
-            'message:amazon_prime'
+            'message:main'
         ],
         // From main to render.
         'receive': [],
@@ -16,6 +13,12 @@ const ipc = {
         'sendReceive': []
     }
 };
+
+for (key in config.config.app) {
+    if (config.config.app[key].status) {
+        ipc.render.send.push('message:' + key);
+    }
+}
 
 // Exposed protected methods in the render process.
 contextBridge.exposeInMainWorld(
