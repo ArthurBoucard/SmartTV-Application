@@ -28,7 +28,7 @@ var config = {
         },
         weather: {
             status: true,
-            position: "bottom-right-container",
+            position: "top-right-container",
             city: "Lyon",
             country: "France",
             temperature_format : "C",

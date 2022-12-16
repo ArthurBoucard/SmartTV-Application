@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" href="./styles/weather.css"/>
+        <title>Weather Widget</title>
+	</head>
+
+    <body id="basic">
+        <h2 id="city"></h2>
+        <h1 id="temperature"></h2>
+        <p id="description"></p>
+        <img id="icon" src="" alt="Weather icon">
+    </body>
+
+    <script type="module">
+        var apiKey = "API_KEY";
+        var city = "Roskilde";
+
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + apiKey, true);
+        request.onload = function() {
+            var data = JSON.parse(this.response);
+            if (request.status >= 200 && request.status < 400) {
+                var temperature = data.main.temp;
+                var description = data.weather[0].description;
+                var icon = data.weather[0].icon;
+
+                document.getElementById("city").innerHTML = city;
+                document.getElementById("temperature").innerHTML = Math.round(temperature) + "°C";
+                document.getElementById("description").innerHTML = description;
+                document.getElementById("icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+            } else {
+                console.log("Error: " + data);
+            }
+        };
+        request.send();
+    </script>
+
+</html>
