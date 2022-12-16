@@ -1,4 +1,5 @@
 const { app, BrowserWindow, BrowserView, ipcMain } = require('electron');
+const config = require('./config');
 
 let window;
 
@@ -33,7 +34,7 @@ app.whenReady().then(() => {
 	});
 
 	// Testing purpose
-	// window.webContents.openDevTools()
+	window.webContents.openDevTools()
 });
 
 app.on('window-all-closed', () => {
@@ -53,32 +54,11 @@ function showMainWindow() {
 	})
 };
 
-function showYoutubeWindow() {
+function showCustomBrowserWindow(url) {
     const view = new BrowserView()
 	window.setBrowserView(view)
 	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
-	view.webContents.loadURL('https://www.youtube.com')
-};
-
-function showNetflixWindow() {
-    const view = new BrowserView()
-	window.setBrowserView(view)
-	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
-	view.webContents.loadURL('https://www.netflix.com')
-};
-
-function showDisneyWindow() {
-    const view = new BrowserView()
-	window.setBrowserView(view)
-	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
-	view.webContents.loadURL('https://www.disneyplus.com')
-};
-
-function showAmazonPrimeWindow() {
-    const view = new BrowserView()
-	window.setBrowserView(view)
-	view.setBounds({ x: 0, y: 32, width: window.getSize()[0], height: window.getSize()[1] - 32 })
-	view.webContents.loadURL('https://www.primevideo.com')
+	view.webContents.loadURL(url)
 };
 
 // -------- IPC --------
@@ -88,17 +68,27 @@ ipcMain.on('message:main', (event, session) => {
 })
 
 ipcMain.on('message:youtube', (event) => {
-    showYoutubeWindow();
+	showCustomBrowserWindow(config.config.app['youtube'].url);
 })
 
 ipcMain.on('message:netflix', (event) => {
-    showNetflixWindow();
+	showCustomBrowserWindow(config.config.app['netflix'].url);
 })
 
 ipcMain.on('message:disney', (event) => {
-    showDisneyWindow();
+	showCustomBrowserWindow(config.config.app['disney'].url);
 })
 
 ipcMain.on('message:amazon_prime', (event) => {
-    showAmazonPrimeWindow();
+	showCustomBrowserWindow(config.config.app['amazon_prime'].url);
 })
+
+// Possible scalable solution
+
+// for (key in config.config.app) {
+//     if (config.config.app[key].status) {
+// 		ipcMain.on('message:' + key, (event) => {
+// 			showCustomBrowserWindow(config.config.app[key].url);
+// 		})
+//     }
+// }

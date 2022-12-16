@@ -1,4 +1,4 @@
-// import config from './config'
+// const config = require('./config');
 
 document.getElementById('menu-btn').addEventListener('click', () => {
     window.ipcRender.send('message:main');
@@ -20,8 +20,12 @@ document.getElementById('amazon_prime-btn').addEventListener('click', () => {
     window.ipcRender.send('message:amazon_prime');
 });
 
-// for (key in config.app) {
-//     document.getElementById(key + '-btn').addEventListener('click', () => {
-//         window.ipcRender.send('message:' + key);
-//     });
+// Possible scalable solution
+
+// for (key in config.config.app) {
+//     if (config.config.app[key].status) {
+//         document.getElementById(key + '-btn').addEventListener('click', () => {
+//             window.ipcRender.send('message:' + key);
+//         });
+//     }
 // }
