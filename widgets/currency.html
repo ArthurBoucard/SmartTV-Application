@@ -11,6 +11,21 @@
     </body>
 
     <script type="module">
+        var apiKey = "API_KEY";
+
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://api.freecurrencyapi.com/v1/latest?apikey=" + apiKey, true);
+        request.onload = function() {
+            var data = JSON.parse(this.response);
+            if (request.status == 200) {
+                var curr = data.data.DKK;
+
+                document.getElementById("exchange").innerHTML = "1 USD = " + curr + " DKK";
+            } else {
+                document.getElementById("exhange").innerHTML = "Error with API";
+            }
+        };
+        request.send();
     </script>
 
 </html>
