@@ -13,7 +13,7 @@ var config = {
             url: "https://www.disneyplus.com"
         },
         amazon_prime:  {
-            status: false,
+            status: true,
             url: "https://www.primevideo.com"
         }
     },
@@ -27,11 +27,17 @@ var config = {
             design: "basic",
         },
         weather: {
-            status: false,
+            status: true,
             position: "top-right-container",
-            city: "Lyon",
+            city: "Roskilde",
             country: "France",
             temperature_format : "C",
+            design: "basic",
+        },
+        currency: {
+            status: true,
+            position: "bottom-container",
+            currency: "DKK",
             design: "basic",
         }
     }

@@ -16,6 +16,7 @@ const createWindow = () => {
 		webPreferences: {
 			sandbox: false,
 			preload: __dirname + '/preload.js',
+			devTools: false
 		},
 	});
 	window.maximize()
